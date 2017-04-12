@@ -8,7 +8,8 @@
 int smithyPlay(int currentPlayer, struct gameState *state, int handPos)
 {
   //+3 Cards
-  for (int i = 0; i < 1; i++)
+  int i = 0;
+  for (i = 0; i < 1; i++)
   {
     drawCard(currentPlayer, state);
   }
