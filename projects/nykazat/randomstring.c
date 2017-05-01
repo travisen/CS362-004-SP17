@@ -8,7 +8,7 @@
 	print an error. I noticed that the loop within test me runs forever
 	and that some parameters had to be meet in order to print "error ".
 
-	I noticed that srand() was called in main. I decided that I would 
+	I noticed that srand() was called in main. I then decided that I would 
 	generate a random char in the inputchar function and a random string in the
 	random string function. To print "error " string s must contain the
 	following, recall that a string in c is an array of chars: reset\0.
