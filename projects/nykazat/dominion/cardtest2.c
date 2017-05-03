@@ -1,5 +1,5 @@
 /*
-    UnitTest1: getCost()
+    UnitTest1: great_hallPlay()
     Used testUpdateCoins.c which was provided by instructor as
     a template for writing this unit test.
 */
@@ -25,6 +25,7 @@ int main() {
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
     struct gameState G;
+    struct gameState copyOfG;
     int maxHandCount = 5;
     // arrays of all coppers, silvers, and golds
     int coppers[MAX_HAND];
@@ -37,9 +38,34 @@ int main() {
         golds[i] = gold;
     }
 
-    printf ("TESTING getCost():\n");
+    printf ("\n\nTESTING great_hallPlay():\n");
 
-    //printf("whoseTurn test passed!\n");
+    initializeGame(numPlayer, k, seed, &G);
+
+    memcpy(&copyOfG, &G, sizeof(struct gameState));
+
+    printf("Inital hand size: %d\n",
+        copyOfG.handCount[0]);
+    printf("Inital Actions: %d\n",
+        copyOfG.numActions);
+
+    great_hallPlay(0, &G, 0);
+
+    //Test that hand size is the same (remember a card is being added and another being discarded)
+    printf("Expected hand size: %d  New Hand Size: %d\n",
+        copyOfG.handCount[0], G.handCount[0]);
+    if(copyOfG.handCount[0] == G.handCount[0])
+        printf("PASSED. VALUES SHOULD BE IDENTICAL\n");
+    else
+        printf("FAILED VALUES DO NOT MATCH.\n");
+
+    //Test that actions increased by 1
+    printf("Expected actions: %d  New # actions: %d\n",
+        copyOfG.numActions, G.numActions);
+    if(copyOfG.numActions+1 == G.numActions)
+        printf("PASSED. VALUES SHOULD BE IDENTICAL\n");
+    else
+        printf("FAILED VALUES DO NOT MATCH.\n");
 
     return 0;
 }

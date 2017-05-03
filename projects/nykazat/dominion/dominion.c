@@ -480,7 +480,7 @@ int isGameOver(struct gameState *state) {
   //if three supply pile are at 0, the game ends
   j = 0;
   for (i = 0; i < 25; i++)
-    {
+  {
       if (state->supplyCount[i] == 0)
 	{
 	  j++;

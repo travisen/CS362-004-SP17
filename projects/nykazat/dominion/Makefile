@@ -35,17 +35,47 @@ runtests: testDrawCard
 testUpdateCoins: testUpdateCoins.c dominion.o rngs.o
 	gcc -o testUpdateCoins -g  testUpdateCoins.c dominion.o rngs.o $(CFLAGS)
 
-unittestresults.out: unittest1.c unittest2.c dominion.o rngs.o
+unittestresults.out: unittest1.c unittest2.c unittest3.c unittest4.c cardtest1.c dominion.o rngs.o
 	echo "BEGIN UNIT TEST SUITE" > unittestresults.out
 
 	echo -e "\nunittest1.c:" >> unittestresults.out
 	gcc -o unittest1 dominion.c rngs.c unittest1.c $(CFLAGS)
-	./unittest1 >> unittestresult.out
+	./unittest1 >> unittestresults.out
 	gcov -b -f dominion.c >> unittestresults.out
 
 	echo -e "\nunittest2.c:" >> unittestresults.out
 	gcc -o unittest2 dominion.c rngs.c unittest2.c $(CFLAGS)
-	./unittest2 >> unittestresult.out
+	./unittest2 >> unittestresults.out
+	gcov -b -f dominion.c >> unittestresults.out
+
+	echo -e "\nunittest3.c:" >> unittestresults.out
+	gcc -o unittest3 dominion.c rngs.c unittest3.c $(CFLAGS)
+	./unittest3 >> unittestresults.out
+	gcov -b -f dominion.c >> unittestresults.out
+
+	echo -e "\nunittest4.c:" >> unittestresults.out
+	gcc -o unittest4 dominion.c rngs.c unittest4.c $(CFLAGS)
+	./unittest4 >> unittestresults.out
+	gcov -b -f dominion.c >> unittestresults.out
+
+	echo -e "\cardtest1.c:" >> unittestresults.out
+	gcc -o cardtest1 dominion.c rngs.c cardtest1.c $(CFLAGS)
+	./cardtest1 >> unittestresults.out
+	gcov -b -f dominion.c >> unittestresults.out
+
+	echo -e "\cardtest2.c:" >> unittestresults.out
+	gcc -o cardtest2 dominion.c rngs.c cardtest2.c $(CFLAGS)
+	./cardtest2 >> unittestresults.out
+	gcov -b -f dominion.c >> unittestresults.out
+
+	echo -e "\cardtest3.c:" >> unittestresults.out
+	gcc -o cardtest3 dominion.c rngs.c cardtest3.c $(CFLAGS)
+	./cardtest3 >> unittestresults.out
+	gcov -b -f dominion.c >> unittestresults.out
+
+	echo -e "\cardtest4.c:" >> unittestresults.out
+	gcc -o cardtest4 dominion.c rngs.c cardtest4.c $(CFLAGS)
+	./cardtest4 >> unittestresults.out
 	gcov -b -f dominion.c >> unittestresults.out
 
 player: player.c interface.o

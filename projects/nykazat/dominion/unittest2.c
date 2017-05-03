@@ -37,11 +37,11 @@ int main() {
         golds[i] = gold;
     }
 
-    printf ("TESTING whoseTurn():\n");
+    printf ("\n\nTESTING whoseTurn():\n");
 
     int currState = 0;
 
-    for (int turn = 0; turn < 20; turn++)
+    for (int turn = 0; turn < 200; turn++)
     {
         G.whoseTurn = turn;
         currState = whoseTurn(&G);
