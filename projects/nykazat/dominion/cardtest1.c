@@ -1,7 +1,7 @@
 /*
     UnitTest1: smithyPlay() Test
     Used testUpdateCoins.c which was provided by instructor as
-    a template for writing this unit test.
+    a template for writing this unit test..
 */
 
 #include "dominion.h"
